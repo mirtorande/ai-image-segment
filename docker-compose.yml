@@ -2,6 +2,9 @@ services:
   backend:
     build: ./backend
     container_name: backend
+    restart: unless-stopped
+    env_file:
+        - .env
     ports:
       - "8000:80"
     develop:
@@ -9,4 +12,16 @@ services:
         - action: sync
           path: ./backend
           target: /app
+    depends_on:
+      - db
     command: fastapi dev --host 0.0.0.0 --port 80 main.py
+
+  db:
+    image: postgres:17
+    container_name: db
+    restart: unless-stopped
+    hostname: db
+    env_file:
+      - .env
+    volumes:  # Remove in production
+      - ./db-data:/var/lib/postgresql/data
