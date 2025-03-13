@@ -25,3 +25,15 @@ services:
       - .env
     volumes:  # Remove in production
       - ./db-data:/var/lib/postgresql/data
+  
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    restart: unless-stopped
+    ports:
+      - "3000:4173"
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: /app
