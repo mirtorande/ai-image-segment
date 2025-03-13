@@ -19,9 +19,9 @@ services:
     environment:
       - NVIDIA_VISIBLE_DEVICES=all  # Make all GPUs visible to the container
     ipc: host  # Set IPC to host (recommended for PyTorch)
-    ulimits:
-      memlock: -1  # Disable memory locking limit
-      stack: 67108864  # Set stack size limit to 64MB
+    # ulimits:
+    #   memlock: -1  # Disable memory locking limit
+    #   stack: 67108864  # Set stack size limit to 64MB
 
   db:
     image: postgres:17
