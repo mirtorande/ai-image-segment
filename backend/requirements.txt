@@ -7,5 +7,3 @@ passlib[bcrypt]
 python-multipart
 Pillow
 #opencv-python
-torch
-torchvision

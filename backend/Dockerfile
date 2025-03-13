@@ -1,4 +1,4 @@
-FROM python:3.13.2
+FROM pytorch/pytorch:2.6.0-cuda12.6-cudnn9-devel
 WORKDIR /app
 COPY . /app
 #RUN apt-get update && apt-get install -y libgl1-mesa-glx

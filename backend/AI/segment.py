@@ -21,6 +21,9 @@ COCO_LABELS = [
 ]
 
 def segment_image(image_data: bytes) -> Image:
+    # Print if using GPU
+    print("Using GPU:", torch.cuda.is_available())
+
     # Load the pre-trained DeepLabV3 model for segmentation
     model = models.segmentation.deeplabv3_resnet101(pretrained=True)
     model.eval()  # Set the model to evaluation mode
