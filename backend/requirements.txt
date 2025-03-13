@@ -6,4 +6,6 @@ pyjwt[crypto]
 passlib[bcrypt]
 python-multipart
 Pillow
-opencv-python
+#opencv-python
+torch
+torchvision
